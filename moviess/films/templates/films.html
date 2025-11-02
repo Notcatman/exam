@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %} films {% endblock %}
+
+{% block div %}
+    <div style="margin: auto; width: 800px; height: 600px; border: 2px groove hsl(0, 0%, 33%); border-radius: 5px;">
+
+        <h1 style="font-family: calibri; text-align: center; margin-top: 100px; font-size: 60px; color: hsl(0, 0%, 50%);">Movies</h1>
+        
+        {% for n in context %}
+            <h3 style="text-align: center;">
+                {{ n.title }} — {{ n.rating }}
+                {% if n.rating >= 8 %}
+                    <span class="badge top">Top rated</span>
+                {% else %}
+                    <span class="badge standard">Standard movie</span>
+                {% endif %}
+            </h3>
+        {% endfor %}
+
+
+        
+        <div style="margin: auto; width: 200px; border: 2px groove hsl(0, 0%, 50%); padding: 5px; border-radius: 5px; text-align: center;">
+        <a href="/" style="font-family: calibri; margin-top: 200px; font-size: 60px; text-decoration: none; color: rgb(84, 76, 67);">back</a>
+        </div>
+    </div>
+{% endblock %}
